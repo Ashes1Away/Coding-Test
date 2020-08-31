@@ -1,0 +1,62 @@
+﻿@model StudentRecords.Web.Models.AddEnrolmentModel
+
+@{
+    ViewData["Title"] = "AddEnrolment";
+}
+
+<h1>Add Enrolment</h1>
+<hr />
+<br />
+<br />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="AddEnrolment">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Enrolment.EnrolmentId" class="control-label" hidden="hidden" />
+                <input asp-for="Enrolment.EnrolmentId" class="input-box" hidden="hidden" />
+            </div>
+            <div class="form-group">
+                <label asp-for="Students" class="control-label"></label>
+                @Html.DropDownListFor(x => x.SelectedStudent, new SelectList(Model.Students))
+            </div>
+            <div class="form-group">
+                <label asp-for="Enrolment.AcademicYear" class="control-label"></label>
+                @Html.DropDownListFor(x => x.Enrolment.AcademicYear, new SelectList(new string[] { "2020/1", "2021/2", "2022/3", "2023/4" }))
+            </div>
+            <div class="form-group">
+                <label asp-for="Enrolment.YearOfStudy" class="control-label"></label>
+                @Html.DropDownListFor(x => x.Enrolment.AcademicYear, new SelectList(new int[] { 0, 1, 2, 3, 4, 5, 6 }))
+            </div>
+            <div class="form-group">
+                <label asp-for="Enrolment.Occurrence" class="control-label"></label>
+                @Html.DropDownListFor(x => x.Enrolment.Occurrence, new SelectList(new string[] { "JAN", "JUL", "SEP" }))
+            </div>
+            <div class="form-group">
+                <label asp-for="Enrolment.ModeOfAttendance" class="control-label"></label>
+                @Html.DropDownListFor(x => x.Enrolment.ModeOfAttendance, new SelectList(new string[] { "FULL TIME", "PART TIME" }))
+            </div>
+            <div class="form-group">
+                <label asp-for="Enrolment.EnrolmentStatus" class="control-label"></label>
+                @Html.DropDownListFor(x => x.Enrolment.EnrolmentStatus, new SelectList(new string[] { "E", "P" }))
+            </div>
+            <div class="form-group">
+                <label asp-for="Enrolment.Course" class="control-label"></label>
+                @Html.DropDownListFor(x => x.Enrolment.Course.CourseName, new SelectList(Model.Courses.Select(x => x.CourseName)))
+            </div>
+            <div class="form-group">
+                <label asp-for="Enrolment.CourseEntryDate" class="control-label"></label>
+                <input asp-for="Enrolment.CourseEntryDate" type="date" class="form-control" />
+                <span asp-validation-for="Enrolment.CourseEntryDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Enrolment.ExpectedEndDate" class="control-label"></label>
+                <input asp-for="Enrolment.ExpectedEndDate" type="date" class="form-control" />
+                <span asp-validation-for="Enrolment.ExpectedEndDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>

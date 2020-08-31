@@ -1,0 +1,83 @@
+﻿@model IEnumerable<StudentRecords.Models.Enrolment>
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Enrolment Details</h1>
+
+<hr />
+<br />
+<br />
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.EnrolmentId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AcademicYear)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.YearOfStudy)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Occurrence)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ModeOfAttendance)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EnrolmentStatus)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CourseEntryDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ExpectedEndDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Course.CourseName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Course.CourseCode)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.EnrolmentId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AcademicYear)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.YearOfStudy)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Occurrence)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ModeOfAttendance)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EnrolmentStatus)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CourseEntryDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ExpectedEndDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Course.CourseName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Course.CourseCode)
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

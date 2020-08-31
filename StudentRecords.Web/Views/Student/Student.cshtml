@@ -1,0 +1,81 @@
+﻿@model IEnumerable<StudentRecords.Models.Student>
+
+@{
+    ViewData["Title"] = "Student";
+}
+
+<h1>All Students</h1>
+<hr />
+<br />
+<br />
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.DisplayName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.KnownAs)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DisplayName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DateOfBirth)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Gender)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UniversityEmail)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NetworkId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.HomeOrOverseas)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CourseEnrolment)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model)
+{
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.DisplayName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.KnownAs)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DisplayName)
+            </td>
+            <td>
+                @{string temp = item.DateOfBirth.ToShortDateString();}
+                @Html.DisplayFor(modelItem => temp)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Gender)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UniversityEmail)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NetworkId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HomeOrOverseas)
+            </td>
+            <td>
+                <a href="@Url.Action("Details","Enrolment",new { id = item.StudentId })">Courses: @item.CourseEnrolment?.Count()</a>
+            </td>
+            <td>
+                <a href="@Url.Action("EditStudent","Student",new { id = item.StudentId })">Edit Student</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
